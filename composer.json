@@ -1,0 +1,13 @@
+{
+    "name": "taneryener/remote-connection",
+    "description": "you can use this package for ssh and sftp connection.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Taner Yener",
+            "email": "iletisim@taneryener.com"
+        }
+    ],
+    "require": {}
+}
