@@ -9,13 +9,24 @@ class SshConnection extends AbstractRemoteConnection implements ISshConnection
 {
     protected $shell;
 
+    /**
+     * SshConnection constructor.
+     * @param string $address
+     * @param int $port
+     * @param string $userName
+     * @param string $password
+     */
     public function __construct(string $address = "", int $port = 22, string $userName = "", string $password = "")
     {
         $this->usePublicKey = false;
 
         parent::__construct($address, $port, $userName, $password);
+        $this->address = $address;
     }
 
+    /**
+     * @return bool
+     */
     public function connect(): bool
     {
         $this->connection = ssh2_connect($this->address, $this->port);
@@ -33,6 +44,11 @@ class SshConnection extends AbstractRemoteConnection implements ISshConnection
         return $connectionResponse;
     }
 
+    /**
+     * @param string $command
+     * @param bool $isNeedSudo
+     * @return bool
+     */
     public function doCommand(string $command, bool $isNeedSudo = false): bool
     {
 
