@@ -13,6 +13,7 @@ class SFTPConnection extends AbstractRemoteConnection implements ISFTPConnection
         parent::__construct($address, $port, $userName, $password);
     }
 
+
     public function connect(): bool
     {
         $this->connection = ssh2_connect($this->address, $this->port);
